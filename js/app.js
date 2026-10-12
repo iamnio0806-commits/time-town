@@ -354,24 +354,24 @@ function viewWelcome() {
   return `<main class="screen welcome">
     <div class="cover">
       <img class="cover-art" src="./images/cover.jpg" alt="午後陽光裡的小鎮小院，有雜貨店、花車和一棟奶油色的房子">
-      <div class="cover-caption">
-        <p class="eyebrow">每天一件小事</p>
-        <h1>時光小鎮</h1>
-      </div>
     </div>
-    <p class="lead">去雜貨店記商品，或去菜市場買菜、算錢。沒有考試，也沒有時間限制。</p>
-    ${state.toast ? `<p class="toast" role="status">${esc(state.toast)}</p>` : ""}
-    ${state.draft ? button("繼續上次的活動", "resume", "primary") : ""}
-    ${button("進入小鎮", "enter", state.draft ? "secondary" : "primary")}
-    ${button("聽說明", "replay", "secondary")}
-    <details class="install">
-      <summary>放在 iPhone 主畫面</summary>
-      <ol class="steps">
-        <li>用 Safari 打開這個頁面。</li>
-        <li>點下方的分享按鈕。</li>
-        <li>往下點「加入主畫面」。</li>
-      </ol>
-    </details>
+    <div class="entry">
+      <p class="eyebrow">每天一件小事</p>
+      <h1>時光小鎮</h1>
+      <p class="lead">去雜貨店記商品，或去菜市場買菜、算錢。沒有考試，也沒有時間限制。</p>
+      ${state.toast ? `<p class="toast" role="status">${esc(state.toast)}</p>` : ""}
+      ${state.draft ? button("繼續上次的活動", "resume", "primary") : ""}
+      ${button("進入小鎮", "enter", state.draft ? "secondary" : "primary")}
+      ${button("聽說明", "replay", "secondary")}
+      <details class="install">
+        <summary>放在 iPhone 主畫面</summary>
+        <ol class="steps">
+          <li>用 Safari 打開這個頁面。</li>
+          <li>點下方的分享按鈕。</li>
+          <li>往下點「加入主畫面」。</li>
+        </ol>
+      </details>
+    </div>
   </main>${dialogHtml()}`;
 }
 
