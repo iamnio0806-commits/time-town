@@ -1,0 +1,13 @@
+{
+  "name": "time-town",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/logic.test.js",
+    "icons": "node scripts/make-icons.js",
+    "start": "node scripts/serve.js"
+  },
+  "dependencies": {
+    "playwright-core": "^1.64.0"
+  }
+}
