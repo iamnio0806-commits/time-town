@@ -24,7 +24,7 @@ html[data-font="xlarge"] { font-size: 22px; }
 body {
   margin: 0;
   color: var(--ink);
-  background: #e7d3b0;
+  background: #d7b48a;
   font-family: "PingFang TC", "Noto Sans CJK TC", "Noto Sans TC", "Microsoft JhengHei", "WenQuanYi Micro Hei", "Droid Sans Fallback", sans-serif;
   line-height: 1.45;
 }
@@ -37,7 +37,9 @@ button { touch-action: manipulation; }
   width: min(480px, 100%);
   min-height: 100dvh;
   margin: 0 auto;
-  background: var(--bg);
+  background:
+    radial-gradient(120% 36% at 50% -8%, #fff6df, transparent 46%),
+    var(--bg);
 }
 
 .sr-only {
@@ -74,7 +76,49 @@ button { touch-action: manipulation; }
 
 .screen { padding: 8px 16px 28px; }
 
-.welcome { padding-top: calc(22px + env(safe-area-inset-top)); }
+.welcome { padding-top: env(safe-area-inset-top); }
+
+.hero { margin: 0 -16px 18px; }
+
+.town-hero {
+  margin: 0;
+  border-radius: 0;
+}
+
+.signboard {
+  position: relative;
+  margin: -46px 22px 0;
+  padding: 10px 12px 12px;
+  text-align: center;
+  background: #6e3b24;
+  border-radius: 16px;
+  box-shadow: 0 7px 0 #4a2416;
+}
+
+.welcome .signboard h1 {
+  margin: 0;
+  color: #fff8ee;
+  font-size: 2.55rem;
+  letter-spacing: 0.08em;
+}
+
+.welcome .signboard .eyebrow {
+  margin: 0 0 2px;
+  color: #ffe7c2;
+}
+
+.place-hero {
+  margin: 4px 0 12px;
+  overflow: hidden;
+  border: 2px solid #2c2118;
+  border-radius: 18px;
+}
+
+.place-hero .store-art,
+.store .store-art {
+  width: 100%;
+  height: auto;
+}
 
 .dock-1 { padding-bottom: calc(7.5rem + env(safe-area-inset-bottom)); }
 .dock-2 { padding-bottom: calc(12rem + env(safe-area-inset-bottom)); }
@@ -131,13 +175,18 @@ h2 {
 
 .suggest,
 .toast,
-.warn { background: var(--gold); font-weight: 800; }
+.warn {
+  background: #fff8ea;
+  border: 2px solid #e2c48a;
+  font-weight: 800;
+}
 
 .toast, .warn, .suggest, .note, .basket { margin-bottom: 14px; }
 
 .note {
   background: var(--card);
-  box-shadow: 0 8px 20px rgba(60, 32, 12, 0.05);
+  border: 2px solid #ead9c0;
+  box-shadow: none;
 }
 
 .note h2 { margin-top: 12px; }
@@ -154,29 +203,35 @@ h2 {
 .grid, .segment { display: grid; grid-template-columns: 1fr 1fr; }
 
 .store, .item, .money, .static-card, .btn {
-  border: 3px solid transparent;
-  border-radius: 22px;
+  border: 2px solid #ead9c0;
+  border-radius: 18px;
 }
 
 .store, .item, .money, .static-card {
-  background: var(--card);
-  box-shadow: 0 8px 20px rgba(60, 32, 12, 0.06);
+  background: #fffaf3;
+  box-shadow: 0 5px 0 rgba(44, 33, 24, 0.06);
 }
 
 .store {
   display: grid;
-  grid-template-columns: 7.2rem 1fr;
-  gap: 8px;
+  grid-template-columns: 7.4rem 1fr;
+  gap: 10px;
   align-items: center;
   width: 100%;
-  min-height: 6.5rem;
-  padding: 10px;
+  min-height: 6.6rem;
+  padding: 8px 12px 8px 8px;
   color: inherit;
   font: inherit;
   text-align: left;
+  border-color: #2c2118;
 }
 
-.store-art { display: block; width: 100%; height: auto; }
+.store-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
 .store-name { display: block; font-size: 1.7rem; font-weight: 800; }
 .store-desc { display: block; margin-top: 4px; color: var(--soft); font-size: 1.05rem; font-weight: 700; }
 
@@ -209,9 +264,9 @@ h2 {
   font-size: 1.05rem;
 }
 
-.btn-primary { background: var(--green); color: white; }
-.btn-secondary { background: transparent; color: var(--ink); border-color: var(--ink); }
-.btn-quiet { background: #f3e4cc; color: var(--ink); }
+.btn-primary { background: var(--green); color: white; border-color: #124028; box-shadow: 0 4px 0 #124028; }
+.btn-secondary { background: #fffaf3; color: var(--ink); border-color: var(--ink); }
+.btn-quiet { background: #f3e4cc; color: var(--ink); border-color: #e2d0b4; }
 
 .topbar .btn { width: auto; }
 
@@ -237,6 +292,10 @@ h2 {
   min-height: 5.2rem;
   font-size: 2rem;
   font-variant-numeric: tabular-nums;
+  background:
+    radial-gradient(circle at 16px 16px, rgba(27, 92, 56, 0.1), transparent 26px),
+    #fffaf3;
+  box-shadow: inset 0 0 0 3px #f3e6cf;
 }
 
 .item[aria-pressed="true"],
@@ -245,6 +304,7 @@ h2 {
   border-color: var(--green);
   background: #e7f4ea;
   color: var(--ink);
+  box-shadow: inset 0 0 0 2px var(--green);
 }
 
 .item.is-hint { box-shadow: inset 0 0 0 4px #a86b12, 0 8px 20px rgba(60, 32, 12, 0.06); }
@@ -279,7 +339,7 @@ h2 {
 
 .basket {
   background: white;
-  border: 3px solid var(--ink);
+  border: 2px solid var(--ink);
   font-size: 1.2rem;
   font-weight: 800;
 }
@@ -345,13 +405,13 @@ h2 {
 .stamp {
   display: inline-block;
   margin-bottom: 8px;
-  padding: 2px 10px;
-  border: 4px solid var(--terra);
-  border-radius: 12px;
+  padding: 4px 12px;
+  border: 2px solid var(--terra);
+  border-radius: 999px;
+  background: white;
   color: var(--terra);
   font-weight: 800;
   letter-spacing: 0.08em;
-  transform: rotate(-6deg);
 }
 
 .log, .steps { margin: 0; padding: 0; }
@@ -422,5 +482,4 @@ h2 {
 
 @media (prefers-reduced-motion: reduce) {
   .btn:active, .store:active, .item:active, .money:active { transform: none; }
-  .stamp { transform: none; }
 }

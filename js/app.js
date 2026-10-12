@@ -18,7 +18,7 @@ import {
   suggestion,
   todayCount,
 } from "./logic.js";
-import { houseFront, itemIcon, marketFront, shopFront, townBanner, townPoster } from "./icons.js";
+import { houseFront, itemIcon, marketFront, shopFront, townPoster } from "./icons.js";
 
 const STORAGE_KEY = "time-town-v1";
 const DRAFT_KEY = "time-town-draft";
@@ -352,9 +352,13 @@ function sumParts(items) {
 
 function viewWelcome() {
   return `<main class="screen welcome">
-    <p class="eyebrow">每天一件小事</p>
-    <h1>時光小鎮</h1>
-    ${townPoster()}
+    <div class="hero">
+      ${townPoster()}
+      <div class="signboard">
+        <p class="eyebrow">每天一件小事</p>
+        <h1>時光小鎮</h1>
+      </div>
+    </div>
     <p class="lead">去雜貨店記商品，或去菜市場買菜、算錢。沒有考試，也沒有時間限制。</p>
     ${state.toast ? `<p class="toast" role="status">${esc(state.toast)}</p>` : ""}
     ${state.draft ? button("繼續上次的活動", "resume", "primary") : ""}
@@ -387,8 +391,7 @@ function viewMap() {
   const done = todayCount(state.sessions);
   return shell({
     mode: "brand",
-    body: `${townBanner()}
-      <h1>今天去哪裡？</h1>
+    body: `<h1>今天去哪裡？</h1>
       <p class="lead">${esc(done ? `今天已完成 ${done} 件事，可以休息，也可以再去一處。` : "做完一件事就可以休息。")}</p>
       <p class="suggest">${esc(tip.text)}</p>
       <div class="street">
@@ -407,7 +410,7 @@ function viewIntro() {
   const memory = state.game === "memory";
   return shell({
     mode: "back",
-    body: `${memory ? shopFront() : marketFront()}
+    body: `<div class="place-hero">${memory ? shopFront() : marketFront()}</div>
       <p class="eyebrow">${memory ? "雜貨店" : "菜市場"}</p>
       <h1>${memory ? "記住商品" : "買菜算錢"}</h1>
       <p class="lead">${esc(memory ? memoryBrief(state.plan.level) : marketBrief(state.plan.level))}</p>
