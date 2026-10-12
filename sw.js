@@ -1,4 +1,4 @@
-const CACHE = "time-town-v2";
+const CACHE = "time-town-v3";
 const ASSETS = [
   "./",
   "./index.html",
@@ -11,6 +11,7 @@ const ASSETS = [
   "./icons/icon-180.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
+  "./images/cover.jpg",
 ];
 
 self.addEventListener("install", (event) => {

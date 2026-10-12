@@ -76,35 +76,65 @@ button { touch-action: manipulation; }
 
 .screen { padding: 8px 16px 28px; }
 
-.welcome { padding-top: env(safe-area-inset-top); }
-
-.hero { margin: 0 -16px 18px; }
-
-.town-hero {
-  margin: 0;
-  border-radius: 0;
+.welcome {
+  padding-top: 0;
+  background: #f7f1e6;
 }
 
-.signboard {
+.cover {
   position: relative;
-  margin: -46px 22px 0;
-  padding: 10px 12px 12px;
+  margin: 0 -16px 14px;
+}
+
+.cover-art {
+  display: block;
+  width: 100%;
+  height: min(62dvh, 540px);
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.cover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 46%;
+  background: linear-gradient(to bottom, rgba(247, 241, 230, 0) 0%, rgba(247, 241, 230, 0.72) 58%, #f7f1e6 100%);
+  pointer-events: none;
+}
+
+.cover-caption {
+  position: absolute;
+  z-index: 1;
+  left: 16px;
+  right: 16px;
+  bottom: 6px;
   text-align: center;
-  background: #6e3b24;
-  border-radius: 16px;
-  box-shadow: 0 7px 0 #4a2416;
 }
 
-.welcome .signboard h1 {
-  margin: 0;
-  color: #fff8ee;
-  font-size: 2.55rem;
-  letter-spacing: 0.08em;
-}
-
-.welcome .signboard .eyebrow {
+.cover-caption .eyebrow {
+  display: inline-block;
   margin: 0 0 2px;
-  color: #ffe7c2;
+  padding: 2px 12px;
+  border-radius: 999px;
+  background: rgba(255, 250, 244, 0.82);
+  color: #8a4b32;
+  letter-spacing: 0.12em;
+}
+
+.cover-caption h1 {
+  margin: 0;
+  color: #6a341c;
+  font-size: 3.15rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-indent: 0.14em;
+  text-shadow:
+    0 1px 0 #fff,
+    0 0 16px rgba(255, 250, 244, 0.95),
+    0 10px 18px rgba(120, 72, 40, 0.12);
 }
 
 .place-hero {
@@ -135,11 +165,6 @@ h1 {
 h2 {
   margin: 18px 0 8px;
   font-size: 1.3rem;
-}
-
-.welcome h1 {
-  font-size: 3rem;
-  letter-spacing: 0.04em;
 }
 
 .eyebrow {

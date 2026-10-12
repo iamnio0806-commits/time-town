@@ -18,7 +18,7 @@ import {
   suggestion,
   todayCount,
 } from "./logic.js";
-import { houseFront, itemIcon, marketFront, shopFront, townPoster } from "./icons.js";
+import { houseFront, itemIcon, marketFront, shopFront } from "./icons.js";
 
 const STORAGE_KEY = "time-town-v1";
 const DRAFT_KEY = "time-town-draft";
@@ -352,9 +352,9 @@ function sumParts(items) {
 
 function viewWelcome() {
   return `<main class="screen welcome">
-    <div class="hero">
-      ${townPoster()}
-      <div class="signboard">
+    <div class="cover">
+      <img class="cover-art" src="./images/cover.jpg" alt="午後陽光裡的小鎮小院，有雜貨店、花車和一棟奶油色的房子">
+      <div class="cover-caption">
         <p class="eyebrow">每天一件小事</p>
         <h1>時光小鎮</h1>
       </div>
